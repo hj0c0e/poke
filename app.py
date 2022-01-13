@@ -22,14 +22,18 @@ def home():
 # 방식2 : DB에 이미지 파일 자체를 올리는 방식
 @app.route('/fileupload', methods=['POST'])
 def file_upload():
-    title_receive = request.form['title_give']
+    name_receive = request.form['name_give']
+    k_name_receive = request.form['k_name_give']
+    p_num_receive = request.form['p_num_give']
     file = request.files['file_give']
     # gridfs 활용해서 이미지 분할 저장
     fs_image_id = fs.put(file)
 
     # db 추가
     doc = {
-        'title': title_receive,
+        'p_name': name_receive,
+        'k_p_name': k_name_receive,
+        'p_num': p_num_receive,
         'img': fs_image_id
     }
     db.info.insert_one(doc)

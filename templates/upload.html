@@ -9,11 +9,15 @@
 </head>
 <script>
   function posting() {
-    let title = $('#title').val()
+    let name = $('#p_name').val()
+    let k_name = $('#p_k_name').val()
+    let num = $('#p_num').val()
     let file = $('#file')[0].files[0]
     let form_data = new FormData()
 
-    form_data.append("title_give", title)
+    form_data.append("name_give", name)
+    form_data.append("k_name_give", k_name)
+    form_data.append("p_num_give", num)
     form_data.append("file_give", file)
 
     $.ajax({
@@ -38,8 +42,11 @@
 </script>
 <body>
   <div class="file-upload">
-    <input style="width:300px;" type="text" id="title" placeholder="업로드할 이미지 제목을 입력해주세요">
+    <input style="width:300px;" type="text" id="p_name" placeholder="포켓몬 이름">
+    <input style="width:300px;" type="text" id="p_k_name" placeholder="포켓몬 한글 이름">
+    <input type="text" id="p_num" placeholder="포켓몬 번호">
     <input type="file" id="file">
+
     <button onclick="posting()">업로드</button>
   </div>
   <hr>
