@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin : 0;
+        }
+        #main_cont{
+            
+            display: flex;
+            flex-direction: column;
+        }
+        #header{
+            background-color: grey;
+            height: 100px;
+        }
+        #info_header{
+            display: flex;
+            flex-direction: row;
+        }
+        #info_header>p{
+            margin: 0 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_cont">
+        <div id='header'>    
+        </div>
+        <div id="info_contain">
+            <div id='info_header'>
+                <p>포켓몬 이름</p>
+                <p>포켓몬 타입</p>        
+            </div>
+            <div id="img_display">
+                <p>찾은 포켓몬img</p>
+                <p>모델에서 찾은 포켓몬과 유사한포켓몬img</p>
+            </div>
+        </div>
+        <div id=footer_wrapper>
+            <p><a href="">처음으로</a></p>
+            <p><a href="">다른 포켓몬 분석(업로드)</a></p>
+            <p><a href="">인스타에 포스팅</a></p>
+        </div>
+
+    </div>
+</body>
+</html>
