@@ -41,10 +41,10 @@ def file_upload():
     return jsonify({'result':'success'})
 
 # 주소에다가 /fileshow/이미지타이틀 입력하면 그 이미지타이틀을 title이라는 변수로 받아옴
-@app.route('/fileshow/<name>')
-def file_show(name):
+@app.route('/fileshow/<title>')
+def file_show(title):
     # title은 현재 이미지타이틀이므로, 그것을 이용해서 db에서 이미지 '파일'을 가지고 옴
-    info = db.info.find_one({'p_name': name})
+    info = db.info.find_one({'title': title})
     img_binary = fs.get(info['img'])
     # html 파일로 넘겨줄 수 있도록, base64 형태의 데이터로 변환
     base64_data = codecs.encode(img_binary.read(), 'base64')
