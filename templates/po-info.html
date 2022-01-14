@@ -5,10 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>Document</title>
+  <title>Pokemon - information</title>
 </head>
 <script>
-  function posting() {
+  function info_save() {
     let name = $('#p_name').val()
     let k_name = $('#p_k_name').val()
     let num = $('#p_num').val()
@@ -22,7 +22,7 @@
 
     $.ajax({
         type: "POST",
-        url: "/fileupload",
+        url: "/info_save",
         data: form_data,
         cache: false,
         contentType: false,
@@ -35,8 +35,8 @@
   }
 
   function find_img() {
-    let title = $('#find_title').val()
-    document.getElementById('link').href = '/fileshow/'+title
+    let name = $('#find_name').val()
+    document.getElementById('link').href = '/fileshow/'+name
   }
 
 </script>
@@ -47,7 +47,7 @@
     <input type="text" id="p_num" placeholder="포켓몬 번호">
     <input type="file" id="file">
 
-    <button onclick="posting()">업로드</button>
+    <button onclick="info_save()">업로드</button>
   </div>
   <hr>
   <div>

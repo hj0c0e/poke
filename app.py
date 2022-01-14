@@ -17,11 +17,11 @@ fs = gridfs.GridFS(db)
 #################################
 @app.route('/')
 def home():
-    return render_template('upload.html')
+    return render_template('po-info.html')
 
-# 방식2 : DB에 이미지 파일 자체를 올리는 방식
-@app.route('/fileupload', methods=['POST'])
-def file_upload():
+# 포켓몬 정보 db 저장
+@app.route('/info_save', methods=['POST'])
+def info_save():
     name_receive = request.form['name_give']
     k_name_receive = request.form['k_name_give']
     p_num_receive = request.form['p_num_give']
@@ -40,11 +40,31 @@ def file_upload():
 
     return jsonify({'result':'success'})
 
+# user 이미지 업로드
+@app.route('/user_upload', methods=['POST'])
+def user_upload():
+    user_receive = request.form['user_give']
+    img = request.files['img_give']
+    # gridfs 활용해서 이미지 분할 저장
+    fs_image_id = fs.put(img)
+
+    # db 추가
+    doc = {
+        'user_name': user_receive,
+        'img': fs_image_id
+    }
+    db.post_img.insert_one(doc)
+
+    return jsonify({'result':'success'})
+
+
+
+
 # 주소에다가 /fileshow/이미지타이틀 입력하면 그 이미지타이틀을 title이라는 변수로 받아옴
-@app.route('/fileshow/<title>')
-def file_show(title):
+@app.route('/fileshow/<name>')
+def file_show(name):
     # title은 현재 이미지타이틀이므로, 그것을 이용해서 db에서 이미지 '파일'을 가지고 옴
-    info = db.info.find_one({'title': title})
+    info = db.info.find_one({'name': name})
     img_binary = fs.get(info['img'])
     # html 파일로 넘겨줄 수 있도록, base64 형태의 데이터로 변환
     base64_data = codecs.encode(img_binary.read(), 'base64')
