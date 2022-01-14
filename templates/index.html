@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="../static/main.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="../static/index.css" rel="stylesheet" type="text/css"/>
     <title>index</title>
     <script>
-        function upload() {
+        function user_upload() {
             let user_name = $('#user_name').val()
             let user_img = $('#user_img')[0].files[0]
             let form_data = new FormData()
@@ -18,7 +18,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/fileupload",
+                url: "/user_upload",
                 data: form_data,
                 cache: false,
                 contentType: false,
@@ -29,27 +29,59 @@
                 }
             });
         }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // function find_user_img() {
+        //     let user_title = $('#find_name').val()
+        //     document.getElementById('link').href = '/usershow/' + user_title
+        // }
+
     </script>
 </head>
 <body>
-<div id="container">
-    <div id="list">
-        <p>제목</p>
-        <p>Direction</p>
-        <p>미리보기</p>
+<div id="wrap">
+    <div id="container">
+        <div id="list">
+            <p>제목</p>
+            <p>Direction</p>
+            <p>미리보기</p>
+        </div>
+        <div id="main">
+            <div id="main-wrapper1">
+                <!--           <img src="../static/img/book.png"/>&ndash;&gt;-->
+                <!--        <input type="file" id="user_img">-->
+                <input type="file" id="user_img" onchange="readURL(this);">
+                <div id="img-wrapper">
+                    <img id="blah" src="data:image/png;base64, {{ img }}">
+                </div>
+            </div>
+            <div id="main-wrapper2">
+                <div>
+                    <input type="text" id="user_name" placeholder="user name">
+                </div>
+                <button id="upload" onclick="user_upload()">업로드</button>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div id="book">
-        <img src="../static/img/book.png"/>
-
-        <input type="text" id="user_name" placeholder="user name">
-        <input type="file" id="user_img">
-
-        <button id="upload" onclick="upload()">
-            업로드
-        </button>
-    </div>
-
+<!--    <div>-->
+<!--        <input style="width:300px;" onchange="find_user_img()" type="text" id="find_name" placeholder="미리보기 할 이미지">-->
+<!--        <a id='link' href="#">업로드 한 이미지 보기</a>-->
+<!--    </div>-->
+<!--    <hr>-->
+<!--    <div>-->
+<!--        <img src="data:image/png;base64, {{ img }}">-->
+<!--    </div>-->
 </div>
 </body>
 </html>
