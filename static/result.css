@@ -1,106 +1,201 @@
 @font-face {
+    font-family: 'UhBeeKang-Ja';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeKang-Ja.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'DungGeunMo';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-*{
-    font-family: 'DungGeunMo';
-}
-body{
-    margin : 0;
+
+body {
+    margin: 0;
     background-image: url("./img/pika.png");
     background-size: 400px;
-    background-color: rgb(71, 54, 54);
+    background-color: white;
 }
-#main_cont{
 
+#wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main_cont {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1000px;
+    height: 900px;
 }
-#header{
-    /* background-color: grey; */
-    height: 100px;
+
+
+#header {
+    width: 100vw;
+    height: 30vh;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
-#header_btn{
-  font-size: 30px;
-  visibility: visible;
-  font-weight: bold;
+
+.color-bg-start {
+    background-color: salmon;
 }
 
-#info_contain{
-    border: 3px solid grey;
+.bg-animate-color {
+    animation: random-bg .5s linear infinite;
+}
+
+@keyframes random-bg {
+    from {
+        filter: hue-rotate(0);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.header_btn {
+    font-family: 'UhBeeKang-Ja';
+    background-color: #00fa9a;
+    color: white;
+    padding: 0 3em;
+    border: none;
+    transition: all .3s ease;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    outline: none;
+    align-self: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.header_btn:hover {
+    animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
+}
+
+.start-fun {
+    background-color: #fff !important;
+    color: salmon !important;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.3);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
+#info-wrapper {
+    width: 900px;
+    height: 900px;
+}
+
+#info_contain {
+    /*border: 3px solid grey;*/
     display: flex;
     flex-direction: column;
+    text-align: center;
     visibility: hidden;
     align-items: center;
     margin: 10px 10px;
     background-image: url("./img/pokemonBG1.png");
     background-position: center;
     background-size: COVER;
-    width: 1200px;
-    height: 800px;
+    width: 100%;
+    height: 100%;
+
 }
-#info_header{
-    margin: 14vh 200px 13vh 0;
+
+#info_header {
+    margin: 14vh 200px 11vh 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 50px;
+    width: 100%;
+
+}
+
+
+#info_header > .info-name {
+    margin: 0 80px 40px 200px;
+    font-family: 'DungGeunMo';
+    color: #eecbad;
+    font-size: 1.5em;
+}
+
+#info_header > .info-type {
+    margin: 0 80px 40px 80px;
+    color: #66cb00;
+    font-family: 'DungGeunMo';
+    font-size: 1.5em;
+
+
+}
+
+
+#img_wrapper {
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-
-}
-#info_header>p{
-    margin: 0 120px;
-    font-size: 30px;
-    font-weight: bold;
-    
-}
-#type {
-    margin-right: 60px;
-}
-
-#img_wrapper{
-
-    display :flex;
-    flex-direction: row;
     align-items: center;
 }
-#img_wrapper>div{
+
+#img_wrapper > div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#img_wrapper>div>img{
-    margin : 80px 30px 0 30px;
-    /* width: 30vh; */
-    width: 200px;
-    height: 200px;
 
+#img_wrapper > div > img {
+    margin: 0 30px;
+    width: 30vh;
 }
-#img_wrapper>div>p{
-    margin-top: 30px;
-    color:white;
-    font-size: 30px;
+
+#img_wrapper div p {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'DungGeunMo';
 }
-#footer_wrapper{
-    margin-top: 20px auto;
-    width: 700px;
+
+#footer_wrapper {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    text-decoration: none;
+    width: 900px;
+    justify-content: space-around;
 }
-#footer_wrapper>p>a{
-    text-decoration: none;
-    color:white;
-    font-size: 28x;
-    background-color: violet;
-       
 
-} 
+#footer_wrapper > p {
+    margin: 0 50px 30px 50px;
+}
+
+#footer_wrapper p a {
+    font-family: 'UhBeeKang-Ja';
+    color: white;
+    font-size: 1.9em;
+    font-weight: bold;
+    background: #ffc125;
+    text-decoration: none;
+    border-radius: 40%;
+    border: 3px solid orange;
+
+}
