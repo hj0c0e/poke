@@ -5,46 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            margin : 0;
-        }
-        #main_cont{
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
 
-            display: flex;
-            flex-direction: column;
-        }
-        #header{
-            background-color: grey;
-            height: 100px;
-        }
-        #info_header{
-            display: flex;
-            flex-direction: row;
-        }
-        #info_header>p{
-            margin: 0 40px;
-        }
-    </style>
+
+      function show() {
+      document.getElementById('info_contain').style.visibility = 'visible';
+      document.getElementById('header_btn').style.visibility = 'hidden';
+      }
+    </script>
 </head>
 <body>
     <div id="main_cont">
         <div id='header'>
-          <button onclick="">결과보기</button>   
+          <button id="header_btn" onclick="show()">결과 보기</button>
         </div>
         <div id="info_contain">
-            <div id='info_header'>
-                <p>포켓몬 이름</p>
-                <p>포켓몬 타입</p>
-            </div>
-            <div id="img_display">
-                <p>찾은 포켓몬img</p>
-                <p>모델에서 찾은 포켓몬과 유사한포켓몬img</p>
-            </div>
+            
+          <div id='info_header'>
+                <p>NAME : {{info_name}}</p>
+                <p id = "type">TYPE : {{type}}</p>
+          </div>
+          <div id="img_wrapper">
+              <div id="img_search">
+                <img src="data:image/jpeg;base64, {{post_img}}">
+                <p>입력</p>
+              </div>
+              <div id="img_result">
+                <img src="data:image/jpeg;base64, {{info_img}}">
+                <p>결과</p>
+              </div>
+          </div>
         </div>
         <div id=footer_wrapper>
-            <p><a href="">처음으로</a></p>
-            <p><a href="">다른 포켓몬 분석(업로드)</a></p>
+            <p><a href="/">처음 으로</a></p>
+            <p><a href="main">다른 포켓몬 분석(업로드)</a></p>
             <p><a href="">인스타에 포스팅</a></p>
         </div>
 

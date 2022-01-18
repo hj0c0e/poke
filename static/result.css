@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'DungGeunMo';
+}
+body{
+    margin : 0;
+    background-image: url("./img/pika.png");
+    background-size: 400px;
+    background-color: rgb(71, 54, 54);
+}
+#main_cont{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#header{
+    /* background-color: grey; */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header_btn{
+  font-size: 30px;
+  visibility: visible;
+  font-weight: bold;
+}
+
+#info_contain{
+    border: 3px solid grey;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    align-items: center;
+    margin: 10px 10px;
+    background-image: url("./img/pokemonBG1.png");
+    background-position: center;
+    background-size: COVER;
+    width: 1200px;
+    height: 800px;
+}
+#info_header{
+    margin: 14vh 200px 13vh 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+#info_header>p{
+    margin: 0 120px;
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+#type {
+    margin-right: 60px;
+}
+
+#img_wrapper{
+
+    display :flex;
+    flex-direction: row;
+    align-items: center;
+}
+#img_wrapper>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#img_wrapper>div>img{
+    margin : 80px 30px 0 30px;
+    /* width: 30vh; */
+    width: 200px;
+    height: 200px;
+
+}
+#img_wrapper>div>p{
+    margin-top: 30px;
+    color:white;
+    font-size: 30px;
+}
+#footer_wrapper{
+    margin-top: 20px auto;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-decoration: none;
+}
+#footer_wrapper>p>a{
+    text-decoration: none;
+    color:white;
+    font-size: 28x;
+    background-color: violet;
+       
+
+} 

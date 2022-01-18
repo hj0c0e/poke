@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'UhBeeKang-Ja';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeKang-Ja.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    background-image: url("./img/pika.png");
+    background-size: 400px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'UhBeeKang-Ja';
+
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    position: fixed;
+    max-width: 700px;
+    margin: 20px 0;
+}
+
+#header p {
+    font-size: 2em;
+    justify-self: center;
+    background-color: #bf3eff;
+    color: white;
+    text-align: center;
+
+
+}
+
+#intro_img {
+    text-align: center;
+}
+
+#intro_img a img {
+    width: 700px;
+    height: 500px;
+
+}
